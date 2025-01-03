@@ -1,4 +1,4 @@
-package com.nandini.customerordermanagement.restapi;
+package com.nandini.customerordermanagement.Entity;
 
 import jakarta.persistence.*;
 
@@ -66,6 +66,7 @@ public class Customer {
     public void setPaymentMethod(String paymentMethod) {
         PaymentMethod = paymentMethod;
     }
+
     @Override
     public String toString() {
         return "Customer [" + "customerId=" + customerId + ", CustomerName=" + CustomerName + ", EmailId=" + EmailId
