@@ -50,12 +50,12 @@ public class OrderController {
 
             if (orderOptional.isPresent() && orderOptional.get().getCustomer().getCustomerId() == customerId) {
                 orderRepo.delete(orderOptional.get());
-                return ResponseEntity.status(HttpStatus.NO_CONTENT).build(); // 204 No Content
+                return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
             } else {
-                return ResponseEntity.status(HttpStatus.NOT_FOUND).build(); // 404 Not Found if order does not exist for the customer
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
             }
         } else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).build(); // 404 Not Found if customer does not exist
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
     }
 
@@ -74,13 +74,14 @@ public class OrderController {
                 existingOrder.setQuantity(order.getQuantity());
                 existingOrder.setPrice(order.getPrice());
                 existingOrder.setTotal(order.getTotal());
+                existingOrder.setStatus(order.getStatus());
                 orderRepo.save(existingOrder);
-                return ResponseEntity.ok(existingOrder); // 200 OK
+                return ResponseEntity.ok(existingOrder);
             } else {
-                return ResponseEntity.status(HttpStatus.NOT_FOUND).build(); // 404 Not Found if order does not exist for the customer
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
             }
         } else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).build(); // 404 Not Found if customer does not exist
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
     }
 }

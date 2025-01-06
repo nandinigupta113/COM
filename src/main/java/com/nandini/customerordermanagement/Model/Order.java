@@ -35,17 +35,35 @@ public class Order {
     @Column(name = "total")
     private double total;
 
+    @Column(name = "STATUS")
+    private String status;
     public Order() {
 
     }
-    public Order(String category, String product, int quantity, double price, double total) {
+    public Order(String category, String product, int quantity, double price, double total, String status) {
         this.category = category;
         this.product = product;
         this.quantity = quantity;
         this.price = price;
         this.total = total;
+        this.status = status;
     }
 
+    public int getOrderid() {
+        return orderid;
+    }
+
+    public void setOrderid(int orderid) {
+        this.orderid = orderid;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
     public double getTotal(){
         return total;

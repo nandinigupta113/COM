@@ -99,11 +99,6 @@ private List<Order> orders = new ArrayList<>();
         ContactNo = contactNo;
     }
 
-//    @Override
-//    public String toString() {
-//        return "Customer [" + "customerId=" + customerId + ", CustomerName=" + CustomerName + ", EmailId=" + EmailId
-//                + ", ContactNo=" + ContactNo + ", PaymentMethod=" + PaymentMethod + "]";
-//    }
     @Override
     public String toString() {
         return "Customer [customerId=" + customerId + ", CustomerName=" + CustomerName +
