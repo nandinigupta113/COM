@@ -1,18 +1,12 @@
 package com.nandini.customerordermanagement.Model;
-
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+
 import java.util.ArrayList;
 import java.util.List;
 
-@Getter
-@Setter
-//@NoArgsConstructor
-@AllArgsConstructor
+@Data
 @Entity
 @Table(name = "Customer")
 public class Customer {
@@ -54,8 +48,6 @@ private List<Order> orders = new ArrayList<>();
         this.orders = orders;
     }
 
-
-
     public void setCustomerId(int id) {
         this.customerId = id;
     }
@@ -64,7 +56,6 @@ private List<Order> orders = new ArrayList<>();
         return customerId;
     }
 
-
     public String getPaymentMethod() {
         return PaymentMethod;
     }
@@ -72,8 +63,6 @@ private List<Order> orders = new ArrayList<>();
     public void setPaymentMethod(String paymentMethod) {
         PaymentMethod = paymentMethod;
     }
-
-
 
     public String getEmailId() {
         return EmailId;

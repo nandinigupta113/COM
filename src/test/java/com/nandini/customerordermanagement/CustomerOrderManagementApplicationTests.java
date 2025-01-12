@@ -8,6 +8,7 @@ class CustomerOrderManagementApplicationTests {
 
 	@Test
 	void contextLoads() {
+
 	}
 
 }
