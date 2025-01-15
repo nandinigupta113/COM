@@ -1,6 +1,4 @@
 package com.nandini.customerordermanagement.Controller;
-
-
 import com.nandini.customerordermanagement.Model.AuthenticationRequest;
 import com.nandini.customerordermanagement.Model.User;
 import com.nandini.customerordermanagement.Repository.UserRepository;
@@ -34,9 +32,7 @@ public class AuthController {
 
     @PostMapping("/register")
     public String registerUser(@RequestBody User user) {
-        // Encode the user's password
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-        // Save the user to the database
         userRepository.save(user);
         return "User registered successfully";
     }
@@ -51,10 +47,5 @@ public class AuthController {
         final String jwt = jwtUtil.generateToken(userDetails);
 
         return jwt;
-    }
-
-    @GetMapping("/hello")
-    public String hello() {
-        return "Hello, World!";
     }
 }
