@@ -16,7 +16,7 @@ import java.util.function.Function;
 @Service
 public class JwtUtil {
 
-    private SecretKey SECRET_KEY = Keys.secretKeyFor(SignatureAlgorithm.HS256); // Correctly generates a 256-bit key
+    private SecretKey SECRET_KEY = Keys.secretKeyFor(SignatureAlgorithm.HS256);
 
     public String extractUsername(String token) {
         return extractClaim(token, Claims::getSubject);

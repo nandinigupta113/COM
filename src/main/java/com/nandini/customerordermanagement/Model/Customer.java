@@ -14,7 +14,7 @@ import java.util.List;
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "customerId")
+    @Column(name = "customer_id")
     private int customerId;
 
     @Column(name = "Customer_Name")

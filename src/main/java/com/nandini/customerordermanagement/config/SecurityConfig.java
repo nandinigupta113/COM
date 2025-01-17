@@ -42,7 +42,18 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .csrf(AbstractHttpConfigurer::disable)
-                .authorizeRequests().requestMatchers("/api/register", "/api/login").permitAll()
+                .authorizeRequests().requestMatchers("/api/register", "/api/login",
+                        "/v1/api/**",
+                        "/v2/api-docs",
+                        "/v3/api-docs",
+                        "/v3/api-docs/**",
+                        "/swagger-resources",
+                        "/swagger-resources/**",
+                        "/configuration/ui",
+                        "/configuration/security",
+                        "/swagger-ui/**",
+                        "/webjars/**",
+                        "/swagger-ui.html").permitAll()
                 .anyRequest().authenticated()
                 .and().sessionManagement(sess -> sess
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS) // No sessions
@@ -56,4 +67,5 @@ public class SecurityConfig {
     public JwtRequestFilter jwtRequestFilter() {
         return new JwtRequestFilter(jwtUtil, customUserDetailsService);
     }
+
 }

@@ -17,7 +17,7 @@ public class Order {
 
     @ManyToOne
     @JsonBackReference
-    @JoinColumn(name = "customerId", nullable = false)
+    @JoinColumn(name = "customer_id", nullable = false)
     public Customer customer;
 
     @Column(name = "Category")
